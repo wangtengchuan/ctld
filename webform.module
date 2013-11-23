@@ -1396,7 +1396,7 @@ function webform_node_view(&$node, $teaser, $page) {
     module_load_include('inc', 'webform', 'includes/webform.submissions');
     
     //Added by WangTengchuan to alert the admin the submission is reaching limit
-    _webform_submission_total_limit_alert($node);
+    //_webform_submission_total_limit_alert($node);
 
     // Disable the form if the limit is exceeded and page cache is not active.
     if (($total_limit_exceeded = _webform_submission_total_limit_check($node)) && !$cached) {
@@ -2118,7 +2118,7 @@ function webform_client_form_validate($form, &$form_state) {
 
 
     //The line blow is modified by WangTengchuan to alert the admin the submission is reaching limit
-    _webform_submission_total_limit_alert($node);
+    //_webform_submission_total_limit_alert($node);
 
     // Check if the total number of entries was reached before the user submitted
     // the form.
