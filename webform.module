@@ -1395,7 +1395,7 @@ function webform_node_view(&$node, $teaser, $page) {
   if ($node->webform['total_submit_limit'] != -1) { // -1: Submissions are never throttled.
     module_load_include('inc', 'webform', 'includes/webform.submissions');
     
-    //d by WangTengchuan to alert the admin the submission is reaching limit
+    //Added by WangTengchuan to alert the admin the submission is reaching limit
     _webform_submission_total_limit_alert($node);
 
     // Disable the form if the limit is exceeded and page cache is not active.
