@@ -837,6 +837,7 @@ function _webform_submission_total_limit_check($node) {
 
   // Fetch all the entries from the database within the submit interval.
   $num_submissions_database = db_result(db_query($query, ($node->webform['total_submit_interval'] != -1) ? (time() - $node->webform['total_submit_interval']) : $node->webform['total_submit_interval'], $node->nid));
+  echo 'The author of the node' . $uid;
  // echo 'The number of submission'. $num_submissions_database;
  // echo 'The total submission limit you set'.$node->webform['total_submit_limit'];
  // exit();
@@ -855,7 +856,7 @@ if(($node->webform['total_submit_limit']-$num_submissions_database)==5){
 
 /*This function _webform_submission_total_limit_alert() is created by WangTengchuan to alert the administrator that the total submission is reaching its limit. If you have any problem in using the function, please contact wangtengchuan@gmail.com*/
 
-function _webform_submission_total_limit_alert($node){
+/*function _webform_submission_total_limit_alert($node){
    $query='SELECT count(*) ' .
            'FROM {webform_submissions} ' .
            'WHERE submission > %d AND nid= %d AND is_draft = 0';
@@ -865,7 +866,7 @@ function _webform_submission_total_limit_alert($node){
    if (($node->webform['total_submit_limit'] - $number_submission_database)==5){
     mail('wangtengchuan@gmail.com','Submission limit alert','The submission is reaching its limit!');
     }
-}
+}*/
 
 /**
  * Preprocess function for webform-submission.tpl.php.
