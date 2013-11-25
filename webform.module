@@ -1327,7 +1327,7 @@ function webform_node_view(&$node, $teaser, $page) {
   $submission_count = 0;
   $enabled = TRUE;
   $logging_in = FALSE;
-  $total_limit_alert = FALSE;//added by WangTengchuan
+  //$total_limit_alert = FALSE;//added by WangTengchuan
   $total_limit_exceeded = FALSE;
   $user_limit_exceeded = FALSE;
   $closed = FALSE;
