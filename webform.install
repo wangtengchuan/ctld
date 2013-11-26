@@ -104,6 +104,13 @@ function webform_schema() {
         'not null' => TRUE,
         'default' => -1,
       ),
+      /*Added by Wangtengchuan*/
+      'already_alert'=>array(
+        'description' => 'The total submission alert email is already sent or not.',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => -1
+      ),
       'total_submit_interval' => array(
         'description' => 'The amount of time in seconds that must pass before another submission can be submitted within the set limit.',
         'type' => 'int',
@@ -1490,6 +1497,11 @@ function webform_update_6330() {
   $ret = array();
   if (!db_column_exists('webform', 'total_submit_limit')) {
     db_add_field($ret, 'webform', 'total_submit_limit', array('type' => 'int', 'not null' => TRUE, 'default' => -1));
+  }
+
+  /*Added by Wangtengchuan*/
+  if(!db_column_exists('webform', 'already_alert')){
+    db_add_field($ret, 'webform', 'already_alert', array('type' => 'int', 'not null' => TRUE, 'default' => -1));
   }
 
   if (!db_column_exists('webform', 'total_submit_interval')) {

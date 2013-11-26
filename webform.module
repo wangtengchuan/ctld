@@ -1,5 +1,7 @@
 <?php
 
+    //global $already_alert;
+    //$already_alert=-1;
 /**
  * This module provides a simple way to create forms and questionnaires.
  *
@@ -1163,6 +1165,8 @@ function webform_node_defaults() {
     'submit_limit' => '-1',
     'submit_interval' => '-1',
     'total_submit_limit' => '-1',
+    //Add a string 'already_alert'in the database, modified by Wangtengchuan
+    'already_alert'=>'-1',
     'total_submit_interval' => '-1',
     'status' => '1',
     'record_exists' => FALSE,
@@ -1327,7 +1331,8 @@ function webform_node_view(&$node, $teaser, $page) {
   $submission_count = 0;
   $enabled = TRUE;
   $logging_in = FALSE;
-  //$total_limit_alert = FALSE;//added by WangTengchuan
+  //global $already_alert;//added by WangTengchuan
+  $already_alert=0;
   $total_limit_exceeded = FALSE;
   $user_limit_exceeded = FALSE;
   $closed = FALSE;
@@ -2119,7 +2124,6 @@ function webform_client_form_validate($form, &$form_state) {
 
     //The line blow is modified by WangTengchuan to alert the admin the submission is reaching limit
     //_webform_submission_total_limit_alert($node);
-
     // Check if the total number of entries was reached before the user submitted
     // the form.
     if (!$finished && $total_limit_exceeded = _webform_submission_total_limit_check($node)) {
