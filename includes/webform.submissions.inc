@@ -837,9 +837,7 @@ function _webform_submission_total_limit_check($node) {
   // Fetch all the entries from the database within the submit interval.
   $num_submissions_database = db_result(db_query($query, ($node->webform['total_submit_interval'] != -1) ? (time() - $node->webform['total_submit_interval']) : $node->webform['total_submit_interval'], $node->nid));
 //Modified by WangTengchuan
-if(($node->webform['total_submit_limit']-$num_submissions_database)==5)
-    //&&($node->webform['already_alert']==-1))
-    {
+if(($node->webform['total_submit_limit']-$num_submissions_database)==5){
     mail('wangtengchuan@gmail.com','Send Mail Test','Submission total alert!');
    // $node->webform['already_alert']=1;
     }
