@@ -1407,7 +1407,6 @@ function webform_node_view(&$node, $teaser, $page) {
     // Disable the form if the limit is exceeded and page cache is not active.
     if (($total_limit_exceeded = _webform_submission_total_limit_check($node)) && !$cached) {
       $enabled = FALSE;
-     // echo $already_alert;
     }
   }
 
@@ -1480,10 +1479,6 @@ function theme_webform_view($node, $teaser, $page, $form, $enabled) {
  *   for anonymous users.
  * @param $user_limit_exceeded
  *   Boolean value if the submission limit for this user has been exceeded.
-
- *Modified by WangTengchuan
- *@param $total_limit_alert
- *  Boolean value if the total submission is reaching the total limit.
 
  * @param $total_limit_exceeded
  *   Boolean value if the total submission limit has been exceeded.
