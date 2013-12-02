@@ -106,10 +106,10 @@ function webform_schema() {
       ),
       /*Added by Wangtengchuan*/
       'already_alert'=>array(
-        'description' => 'The total submission alert email is already sent or not.',
+        'description' => 'The total submission alert email is already sent or not, -1 is not sent.',
         'type' => 'int',
         'not null' => TRUE,
-        'default' => -1
+        'default' => -1,
       ),
       'total_submit_interval' => array(
         'description' => 'The amount of time in seconds that must pass before another submission can be submitted within the set limit.',
