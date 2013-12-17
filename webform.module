@@ -1398,12 +1398,6 @@ function webform_node_view(&$node, $teaser, $page) {
   if ($node->webform['total_submit_limit'] != -1) { // -1: Submissions are never throttled.
     module_load_include('inc', 'webform', 'includes/webform.submissions');
     
-    //Added by WangTengchuan to alert the admin the submission is reaching limit
-    //_webform_submission_total_limit_alert($node);
-    /*if((_webform_submission_total_limit_alert($node))){
-    mail('wangtengchuan@gmail.com','Send Mail Test','Submission total alert!');
-    $already_alert=TRUE;
-    }*/
     // Disable the form if the limit is exceeded and page cache is not active.
     if (($total_limit_exceeded = _webform_submission_total_limit_check($node)) && !$cached) {
       $enabled = FALSE;
@@ -2117,12 +2111,6 @@ function webform_client_form_validate($form, &$form_state) {
   // Check that the submissions have not exceeded the total submission limit.
   if ($node->webform['total_submit_limit'] != -1) {
     module_load_include('inc', 'webform', 'includes/webform.submissions');
-
-
-    //The line blow is modified by WangTengchuan to alert the admin the submission is reaching limit
-    //_webform_submission_total_limit_alert($node);
-    // Check if the total number of entries was reached before the user submitted
-    // the form.
     if (!$finished && $total_limit_exceeded = _webform_submission_total_limit_check($node)) {
       // Show the user the limit has exceeded.
       theme('webform_view_messages', $node, 0, 1, 0, NULL, $total_limit_exceeded, array_keys(user_roles()), FALSE, FALSE);
